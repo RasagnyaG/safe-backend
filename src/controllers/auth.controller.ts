@@ -15,8 +15,8 @@ export async function registerUser(req: Request, res: Response) {
 
         const temp = await Prisma.user.findUnique({
             where: {
-                accountnumber,
-                phonenumber,
+                accountNumber : accountnumber,
+                phoneNumber : phonenumber,
                 email,
             }
         })
