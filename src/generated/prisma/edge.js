@@ -138,7 +138,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\safe_backend\\safe-backend\\src\\generated\\prisma",
+      "value": "/Users/rasagnyagudipudi/safe-backend/src/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -147,12 +147,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "darwin-arm64",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\safe_backend\\safe-backend\\prisma\\schema.prisma",
+    "sourceFilePath": "/Users/rasagnyagudipudi/safe-backend/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {

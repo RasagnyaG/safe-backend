@@ -2,12 +2,16 @@ import express from "express";
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cors from "cors";
-const app = express();
-
+import authRouter from "./routers/auth.router.ts";
 dotenv.config();
+
+const app = express();
 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// routes
+app.use("/auth", authRouter);
 
 app.use(
   cors({
