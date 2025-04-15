@@ -1,8 +1,6 @@
 import Prisma from "../prisma.client.js";
 import { Response, Request } from "express";
 import bcrypt from "bcryptjs";
-import crypto from "crypto";
-import { Buffer } from "buffer";
 
 export async function registerUser(req: Request, res: Response) {
     try {
