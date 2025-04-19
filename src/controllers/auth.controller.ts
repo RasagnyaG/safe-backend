@@ -3,9 +3,11 @@ import { Response, Request } from "express";
 import bcrypt from "bcryptjs";
 import { getSignedToken,getRefreshToken } from "../utils/tokengeneration.js";
 
-const sendResponse = (res : Response, statusCode : number, userID : string,message : string) => {
-    const accessToken = getSignedToken(userID);
-    const refreshToken = getRefreshToken(userID);
+const sendResponse = async(res : Response, statusCode : number, userID : string,message : string) => {
+    const accessToken = await getSignedToken(userID);
+    console.log("accessToken: ", accessToken);
+    const refreshToken = await getRefreshToken(userID);
+    console.log("refreshToken: ", refreshToken);
     res.status(statusCode).json({message, accessToken, refreshToken});
     return;
 }

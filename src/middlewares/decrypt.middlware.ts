@@ -3,7 +3,7 @@ import * as crypto from "crypto";
 import dotenv from "dotenv";
 
 dotenv.config();
-const key = process.env.ENCRYPTION_KEY as string;
+const key = Buffer.from(process.env.ENCRYPTION_KEY as string, "base64");
 console.log("key: ", key);
 
 export const decryptMiddleware = async (
@@ -13,7 +13,12 @@ export const decryptMiddleware = async (
 ) => {
   try {
     const data = req.body.data;
-    if (!data || typeof data !== "string") {
+    console.log("data: ", data);
+    if (req.method !== "POST") {
+      next();
+      return;
+    }    
+    if ( typeof data !== "string") {
       res.status(400).json({ message: "Invalid data provided" });
       return;
     }
@@ -35,10 +40,19 @@ export const decryptMiddleware = async (
     decrypted += decipher.final("utf-8");
 
     req.body = JSON.parse(decrypted);
-    console.log(req.body);
+    console.log("req.body:",req.body);
     next();
-  } catch (error) {
-    console.error("Error in decrypting data", error);
+    return;
+  }  catch (error: any) {
+    if (
+      error.message === "Unsupported state or unable to authenticate data"
+    ) {
+      console.warn("Tampered or invalid encrypted data detected");
+      res.status(400).json({ message: "Invalid or tampered data" });
+      return;
+    }
+
+    console.error("Internal error during decryption:", error);
     res.status(500).json({ message: "Internal server error" });
     return;
   }

@@ -21,6 +21,7 @@ export const getQuestions = async (req: Request, res: Response) => {
 export const addQuestion = async (req: Request, res: Response) => {
     try {
         const { question } = req.body;
+        console.log("question: ", question);
         if (!question) {
             res.status(400).json({ message: "Question is required" });
             return;

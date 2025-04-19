@@ -10,9 +10,12 @@ const router = Router();
 //questions
 router.get("/questions",protectRoute,decryptMiddleware, getQuestions);
 router.post("/addquestion",protectRoute,decryptMiddleware, addQuestion);
-router.post("/deletequestion",protectRoute,decryptMiddleware, deleteQuestion);
+// router.post("/addquestion", addQuestion);
+router.post("/deletequestion",protectRoute,decryptMiddleware, deleteQuestion); //haven't checked
 
 //answers
 router.post("/verifyanswer",protectRoute,decryptMiddleware, verifyAnswer);
 router.post("/addanswer",protectRoute,decryptMiddleware, addAnswer);
-router.post("/deleteanswer",protectRoute,decryptMiddleware, deleteAnswer);
+router.delete("/deleteanswer",protectRoute,decryptMiddleware, deleteAnswer);
+
+export default router;
