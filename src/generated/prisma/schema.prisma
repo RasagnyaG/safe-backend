@@ -9,21 +9,44 @@ datasource db {
 }
 
 model User {
-  id            String   @id @default(cuid())
-  name          String?
-  email         String?  @unique
-  phoneNumber   String
-  passcode      String
-  accountNumber String   @unique
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  Devices       Device[]
+  id              String               @id @default(cuid())
+  name            String
+  email           String               @unique
+  phoneNumber     String
+  passcode        String
+  accountNumber   String               @unique
+  createdAt       DateTime             @default(now())
+  updatedAt       DateTime             @updatedAt
+  Devices         Device[]
+  SecurityAnswers UserSecurityAnswer[]
 }
 
 model Device {
   id       String @id @default(cuid())
   deviceId String @unique
-  FCMToken String @unique
+  // FCMToken String @unique
   userId   String
   user     User   @relation(fields: [userId], references: [id])
+}
+
+model SecurityQuestion {
+  id        String               @id @default(cuid())
+  question  String               @unique
+  createdAt DateTime             @default(now())
+  updatedAt DateTime             @updatedAt
+  answers   UserSecurityAnswer[]
+}
+
+model UserSecurityAnswer {
+  id         String   @id @default(cuid())
+  userId     String
+  questionId String
+  answerHash String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  user     User             @relation(fields: [userId], references: [id])
+  question SecurityQuestion @relation(fields: [questionId], references: [id])
+
+  @@unique([userId, questionId])
 }

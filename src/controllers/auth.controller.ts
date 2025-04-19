@@ -1,6 +1,14 @@
 import Prisma from "../prisma.client.js";
 import { Response, Request } from "express";
 import bcrypt from "bcryptjs";
+import { getSignedToken,getRefreshToken } from "../utils/tokengeneration.js";
+
+const sendResponse = (res : Response, statusCode : number, userID : string,message : string) => {
+    const accessToken = getSignedToken(userID);
+    const refreshToken = getRefreshToken(userID);
+    res.status(statusCode).json({message, accessToken, refreshToken});
+    return;
+}
 
 export async function registerUser(req: Request, res: Response) {
     try {
@@ -11,13 +19,22 @@ export async function registerUser(req: Request, res: Response) {
             return;
         }
 
-        const temp = await Prisma.user.findUnique({
+        // const temp = await Prisma.user.findUnique({
+        //     where: {
+        //         accountNumber : accountnumber,
+        //         phoneNumber : phonenumber,
+        //         email,
+        //     }
+        // })
+        const temp = await Prisma.user.findFirst({
             where: {
-                accountNumber : accountnumber,
-                phoneNumber : phonenumber,
-                email,
-            }
-        })
+                OR: [
+                    { accountNumber: accountnumber },
+                    { phoneNumber: phonenumber },
+                    { email },
+                ],
+            },
+        });
 
         if (temp) {
             res.status(400).json({ message: "User already exists,plz login" });
@@ -41,15 +58,19 @@ export async function registerUser(req: Request, res: Response) {
             data: {
                 deviceId,
                 userId: user.id,
+                // FCMToken: "", // Provide a default or valid FCMToken value
             }
         })
 
         console.log("User created successfully");
-        res.status(200).json({ message: "User registered successfully" });
+        const message = "User created successfully";
+        sendResponse(res,200,user.id,message);
+        // res.status(200).json({ message: "User registered successfully" });
         return;
 
     } catch (error) {
         console.error(error);
+        return;
     }
 }
 
@@ -96,10 +117,14 @@ export async function loginUser(req: Request, res: Response) {
             return;
         }
 
-        res.status(200).json({ message: "Login successful" });
+        const message = "Login successful";
+        sendResponse(res,200,user.id,message);
+
+        // res.status(200).json({ message: "Login successful" });
         return;
     } catch (error) {
         console.error(error);
+        return;
     }
 
 }

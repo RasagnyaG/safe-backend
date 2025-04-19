@@ -131,8 +131,23 @@ exports.Prisma.UserScalarFieldEnum = {
 exports.Prisma.DeviceScalarFieldEnum = {
   id: 'id',
   deviceId: 'deviceId',
-  FCMToken: 'FCMToken',
   userId: 'userId'
+};
+
+exports.Prisma.SecurityQuestionScalarFieldEnum = {
+  id: 'id',
+  question: 'question',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.UserSecurityAnswerScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  questionId: 'questionId',
+  answerHash: 'answerHash',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -145,15 +160,12 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
-exports.Prisma.NullsOrder = {
-  first: 'first',
-  last: 'last'
-};
-
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Device: 'Device'
+  Device: 'Device',
+  SecurityQuestion: 'SecurityQuestion',
+  UserSecurityAnswer: 'UserSecurityAnswer'
 };
 
 /**
