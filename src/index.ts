@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import authRouter from "./routers/auth.router.ts";
 import questionRouter from "./routers/questions.router.ts";
+import otpRouter from "./routers/otp.router.ts";
 dotenv.config();
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // routes
 app.use("/auth", authRouter);
 app.use("/questions", questionRouter);
+app.use("/otp", otpRouter);
 
 app.use(
   cors({
