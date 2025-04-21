@@ -1228,6 +1228,8 @@ export namespace Prisma {
     email: string | null
     phoneNumber: string | null
     passcode: string | null
+    alternativeEmail: string | null
+    alternativePhoneNumber: string | null
     accountNumber: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -1239,6 +1241,8 @@ export namespace Prisma {
     email: string | null
     phoneNumber: string | null
     passcode: string | null
+    alternativeEmail: string | null
+    alternativePhoneNumber: string | null
     accountNumber: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -1250,6 +1254,8 @@ export namespace Prisma {
     email: number
     phoneNumber: number
     passcode: number
+    alternativeEmail: number
+    alternativePhoneNumber: number
     accountNumber: number
     createdAt: number
     updatedAt: number
@@ -1263,6 +1269,8 @@ export namespace Prisma {
     email?: true
     phoneNumber?: true
     passcode?: true
+    alternativeEmail?: true
+    alternativePhoneNumber?: true
     accountNumber?: true
     createdAt?: true
     updatedAt?: true
@@ -1274,6 +1282,8 @@ export namespace Prisma {
     email?: true
     phoneNumber?: true
     passcode?: true
+    alternativeEmail?: true
+    alternativePhoneNumber?: true
     accountNumber?: true
     createdAt?: true
     updatedAt?: true
@@ -1285,6 +1295,8 @@ export namespace Prisma {
     email?: true
     phoneNumber?: true
     passcode?: true
+    alternativeEmail?: true
+    alternativePhoneNumber?: true
     accountNumber?: true
     createdAt?: true
     updatedAt?: true
@@ -1369,6 +1381,8 @@ export namespace Prisma {
     email: string
     phoneNumber: string
     passcode: string
+    alternativeEmail: string | null
+    alternativePhoneNumber: string
     accountNumber: string
     createdAt: Date
     updatedAt: Date
@@ -1397,6 +1411,8 @@ export namespace Prisma {
     email?: boolean
     phoneNumber?: boolean
     passcode?: boolean
+    alternativeEmail?: boolean
+    alternativePhoneNumber?: boolean
     accountNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -1411,6 +1427,8 @@ export namespace Prisma {
     email?: boolean
     phoneNumber?: boolean
     passcode?: boolean
+    alternativeEmail?: boolean
+    alternativePhoneNumber?: boolean
     accountNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -1422,6 +1440,8 @@ export namespace Prisma {
     email?: boolean
     phoneNumber?: boolean
     passcode?: boolean
+    alternativeEmail?: boolean
+    alternativePhoneNumber?: boolean
     accountNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -1433,12 +1453,14 @@ export namespace Prisma {
     email?: boolean
     phoneNumber?: boolean
     passcode?: boolean
+    alternativeEmail?: boolean
+    alternativePhoneNumber?: boolean
     accountNumber?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "phoneNumber" | "passcode" | "accountNumber" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "phoneNumber" | "passcode" | "alternativeEmail" | "alternativePhoneNumber" | "accountNumber" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Devices?: boolean | User$DevicesArgs<ExtArgs>
     SecurityAnswers?: boolean | User$SecurityAnswersArgs<ExtArgs>
@@ -1459,6 +1481,8 @@ export namespace Prisma {
       email: string
       phoneNumber: string
       passcode: string
+      alternativeEmail: string | null
+      alternativePhoneNumber: string
       accountNumber: string
       createdAt: Date
       updatedAt: Date
@@ -1892,6 +1916,8 @@ export namespace Prisma {
     readonly email: FieldRef<"User", 'String'>
     readonly phoneNumber: FieldRef<"User", 'String'>
     readonly passcode: FieldRef<"User", 'String'>
+    readonly alternativeEmail: FieldRef<"User", 'String'>
+    readonly alternativePhoneNumber: FieldRef<"User", 'String'>
     readonly accountNumber: FieldRef<"User", 'String'>
     readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
@@ -5537,6 +5563,8 @@ export namespace Prisma {
     email: 'email',
     phoneNumber: 'phoneNumber',
     passcode: 'passcode',
+    alternativeEmail: 'alternativeEmail',
+    alternativePhoneNumber: 'alternativePhoneNumber',
     accountNumber: 'accountNumber',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -5590,6 +5618,14 @@ export namespace Prisma {
   };
 
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+  export const NullsOrder: {
+    first: 'first',
+    last: 'last'
+  };
+
+  export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
   /**
@@ -5651,6 +5687,8 @@ export namespace Prisma {
     email?: StringFilter<"User"> | string
     phoneNumber?: StringFilter<"User"> | string
     passcode?: StringFilter<"User"> | string
+    alternativeEmail?: StringNullableFilter<"User"> | string | null
+    alternativePhoneNumber?: StringFilter<"User"> | string
     accountNumber?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
@@ -5664,6 +5702,8 @@ export namespace Prisma {
     email?: SortOrder
     phoneNumber?: SortOrder
     passcode?: SortOrder
+    alternativeEmail?: SortOrderInput | SortOrder
+    alternativePhoneNumber?: SortOrder
     accountNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -5681,6 +5721,8 @@ export namespace Prisma {
     name?: StringFilter<"User"> | string
     phoneNumber?: StringFilter<"User"> | string
     passcode?: StringFilter<"User"> | string
+    alternativeEmail?: StringNullableFilter<"User"> | string | null
+    alternativePhoneNumber?: StringFilter<"User"> | string
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     Devices?: DeviceListRelationFilter
@@ -5693,6 +5735,8 @@ export namespace Prisma {
     email?: SortOrder
     phoneNumber?: SortOrder
     passcode?: SortOrder
+    alternativeEmail?: SortOrderInput | SortOrder
+    alternativePhoneNumber?: SortOrder
     accountNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -5710,6 +5754,8 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"User"> | string
     phoneNumber?: StringWithAggregatesFilter<"User"> | string
     passcode?: StringWithAggregatesFilter<"User"> | string
+    alternativeEmail?: StringNullableWithAggregatesFilter<"User"> | string | null
+    alternativePhoneNumber?: StringWithAggregatesFilter<"User"> | string
     accountNumber?: StringWithAggregatesFilter<"User"> | string
     createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
@@ -5880,6 +5926,8 @@ export namespace Prisma {
     email: string
     phoneNumber: string
     passcode: string
+    alternativeEmail?: string | null
+    alternativePhoneNumber: string
     accountNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5893,6 +5941,8 @@ export namespace Prisma {
     email: string
     phoneNumber: string
     passcode: string
+    alternativeEmail?: string | null
+    alternativePhoneNumber: string
     accountNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5906,6 +5956,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     passcode?: StringFieldUpdateOperationsInput | string
+    alternativeEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    alternativePhoneNumber?: StringFieldUpdateOperationsInput | string
     accountNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5919,6 +5971,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     passcode?: StringFieldUpdateOperationsInput | string
+    alternativeEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    alternativePhoneNumber?: StringFieldUpdateOperationsInput | string
     accountNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5932,6 +5986,8 @@ export namespace Prisma {
     email: string
     phoneNumber: string
     passcode: string
+    alternativeEmail?: string | null
+    alternativePhoneNumber: string
     accountNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -5943,6 +5999,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     passcode?: StringFieldUpdateOperationsInput | string
+    alternativeEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    alternativePhoneNumber?: StringFieldUpdateOperationsInput | string
     accountNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -5954,6 +6012,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     passcode?: StringFieldUpdateOperationsInput | string
+    alternativeEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    alternativePhoneNumber?: StringFieldUpdateOperationsInput | string
     accountNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6129,6 +6189,21 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -6152,6 +6227,11 @@ export namespace Prisma {
     none?: UserSecurityAnswerWhereInput
   }
 
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type DeviceOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -6166,6 +6246,8 @@ export namespace Prisma {
     email?: SortOrder
     phoneNumber?: SortOrder
     passcode?: SortOrder
+    alternativeEmail?: SortOrder
+    alternativePhoneNumber?: SortOrder
     accountNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -6177,6 +6259,8 @@ export namespace Prisma {
     email?: SortOrder
     phoneNumber?: SortOrder
     passcode?: SortOrder
+    alternativeEmail?: SortOrder
+    alternativePhoneNumber?: SortOrder
     accountNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -6188,6 +6272,8 @@ export namespace Prisma {
     email?: SortOrder
     phoneNumber?: SortOrder
     passcode?: SortOrder
+    alternativeEmail?: SortOrder
+    alternativePhoneNumber?: SortOrder
     accountNumber?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -6209,6 +6295,24 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedStringFilter<$PrismaModel>
     _max?: NestedStringFilter<$PrismaModel>
+  }
+
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -6336,6 +6440,10 @@ export namespace Prisma {
 
   export type StringFieldUpdateOperationsInput = {
     set?: string
+  }
+
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
   }
 
   export type DateTimeFieldUpdateOperationsInput = {
@@ -6496,6 +6604,20 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type NestedDateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -6533,6 +6655,34 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntFilter<$PrismaModel> | number
+  }
+
+  export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
@@ -6654,6 +6804,8 @@ export namespace Prisma {
     email: string
     phoneNumber: string
     passcode: string
+    alternativeEmail?: string | null
+    alternativePhoneNumber: string
     accountNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -6666,6 +6818,8 @@ export namespace Prisma {
     email: string
     phoneNumber: string
     passcode: string
+    alternativeEmail?: string | null
+    alternativePhoneNumber: string
     accountNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -6694,6 +6848,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     passcode?: StringFieldUpdateOperationsInput | string
+    alternativeEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    alternativePhoneNumber?: StringFieldUpdateOperationsInput | string
     accountNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6706,6 +6862,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     passcode?: StringFieldUpdateOperationsInput | string
+    alternativeEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    alternativePhoneNumber?: StringFieldUpdateOperationsInput | string
     accountNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6760,6 +6918,8 @@ export namespace Prisma {
     email: string
     phoneNumber: string
     passcode: string
+    alternativeEmail?: string | null
+    alternativePhoneNumber: string
     accountNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -6772,6 +6932,8 @@ export namespace Prisma {
     email: string
     phoneNumber: string
     passcode: string
+    alternativeEmail?: string | null
+    alternativePhoneNumber: string
     accountNumber: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -6819,6 +6981,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     passcode?: StringFieldUpdateOperationsInput | string
+    alternativeEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    alternativePhoneNumber?: StringFieldUpdateOperationsInput | string
     accountNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -6831,6 +6995,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     phoneNumber?: StringFieldUpdateOperationsInput | string
     passcode?: StringFieldUpdateOperationsInput | string
+    alternativeEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    alternativePhoneNumber?: StringFieldUpdateOperationsInput | string
     accountNumber?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

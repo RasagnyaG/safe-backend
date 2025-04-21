@@ -14,7 +14,8 @@ model User {
   email         String  @unique
   phoneNumber   String
   passcode      String
-  accountNumber String   @unique
+  alternativeEmail String?
+  alternativePhoneNumber String
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
   Devices       Device[]

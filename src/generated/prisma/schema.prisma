@@ -9,16 +9,18 @@ datasource db {
 }
 
 model User {
-  id              String               @id @default(cuid())
-  name            String
-  email           String               @unique
-  phoneNumber     String
-  passcode        String
-  accountNumber   String               @unique
-  createdAt       DateTime             @default(now())
-  updatedAt       DateTime             @updatedAt
-  Devices         Device[]
-  SecurityAnswers UserSecurityAnswer[]
+  id                     String               @id @default(cuid())
+  name                   String
+  email                  String               @unique
+  phoneNumber            String
+  passcode               String
+  alternativeEmail       String?
+  alternativePhoneNumber String
+  accountNumber          String               @unique
+  createdAt              DateTime             @default(now())
+  updatedAt              DateTime             @updatedAt
+  Devices                Device[]
+  SecurityAnswers        UserSecurityAnswer[]
 }
 
 model Device {
