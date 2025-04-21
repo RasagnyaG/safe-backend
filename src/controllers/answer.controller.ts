@@ -38,15 +38,27 @@ export const addAnswer = async (req: any, res: any) => {
 
 export const verifyAnswer = async (req: any, res: any) => {
     try {
-        const { questionId, answer, userId } = req.body;
-        if (!questionId || !answer || !userId) {
+        const { questionId, answer, username,phoneno } = req.body;
+        if (!questionId || !answer || !username || !phoneno) {
             res.status(400).json({ message: "All fields are required" });
+            return;
+        }
+        const user = await prisma.user.findFirst({
+            where: {
+                AND: [
+                    { name: username },
+                    { phoneNumber: phoneno },
+                ]
+            }
+        })
+        if (!user) {
+            res.status(400).json({ message: "User not found" });
             return;
         }
         const findanswer = await prisma.userSecurityAnswer.findFirst({
             where: {
                 questionId,
-                userId,
+                userId : user.id,
             },
         });
         if (!findanswer) {
