@@ -6,6 +6,7 @@ dotenv.config();
 const key = Buffer.from(process.env.ENCRYPTION_KEY as string, "base64");
 console.log("key: ", key);
 
+
 export const decryptMiddleware = async (
   req: Request,
   res: Response,

@@ -123,6 +123,8 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   phoneNumber: 'phoneNumber',
   passcode: 'passcode',
+  alternativeEmail: 'alternativeEmail',
+  alternativePhoneNumber: 'alternativePhoneNumber',
   accountNumber: 'accountNumber',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
@@ -158,6 +160,11 @@ exports.Prisma.SortOrder = {
 exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
 };
 
 
